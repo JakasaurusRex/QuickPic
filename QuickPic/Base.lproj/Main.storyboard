@@ -162,7 +162,7 @@
         <!--HomeNavigationController-->
         <scene sceneID="TVV-W1-KXS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ydK-9Y-mPp" userLabel="HomeNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ydK-9Y-mPp" userLabel="HomeNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c02-IQ-9U4">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
