@@ -19,6 +19,8 @@
 		84CF933E286A4EA800EBD615 /* QuickPicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF933D286A4EA800EBD615 /* QuickPicTests.m */; };
 		84CF9348286A4EA800EBD615 /* QuickPicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9347286A4EA800EBD615 /* QuickPicUITests.m */; };
 		84CF934A286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9349286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m */; };
+		84CF9359286A53AA00EBD615 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9358286A53AA00EBD615 /* LoginViewController.m */; };
+		84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF935B286A567A00EBD615 /* HomeViewController.m */; };
 		CDDBF6AB5D4697AB2DBAC846 /* Pods_QuickPicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA060DF859A919FC42DDA36A /* Pods_QuickPicTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,10 @@
 		84CF9343286A4EA800EBD615 /* QuickPicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickPicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CF9347286A4EA800EBD615 /* QuickPicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPicUITests.m; sourceTree = "<group>"; };
 		84CF9349286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPicUITestsLaunchTests.m; sourceTree = "<group>"; };
+		84CF9357286A53AA00EBD615 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		84CF9358286A53AA00EBD615 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		84CF935A286A567A00EBD615 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		84CF935B286A567A00EBD615 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		85DEACBEAB1BDABD79DBB46D /* Pods-QuickPicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPicTests.release.xcconfig"; path = "Target Support Files/Pods-QuickPicTests/Pods-QuickPicTests.release.xcconfig"; sourceTree = "<group>"; };
 		B506C8C801153FC3F85171D8 /* Pods-QuickPic-QuickPicUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPic-QuickPicUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickPic-QuickPicUITests/Pods-QuickPic-QuickPicUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9D46D2C0E5F00DD0E61E36 /* Pods_QuickPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +112,6 @@
 				FC2EC39D2190D2DF0821C364 /* Pods-QuickPicTests.debug.xcconfig */,
 				85DEACBEAB1BDABD79DBB46D /* Pods-QuickPicTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +140,7 @@
 		84CF9320286A4EA700EBD615 /* QuickPic */ = {
 			isa = PBXGroup;
 			children = (
+				84CF9356286A538A00EBD615 /* ViewControllers */,
 				84CF9321286A4EA700EBD615 /* AppDelegate.h */,
 				84CF9322286A4EA700EBD615 /* AppDelegate.m */,
 				84CF9324286A4EA700EBD615 /* SceneDelegate.h */,
@@ -165,6 +171,17 @@
 				84CF9349286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m */,
 			);
 			path = QuickPicUITests;
+			sourceTree = "<group>";
+		};
+		84CF9356286A538A00EBD615 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84CF9357286A53AA00EBD615 /* LoginViewController.h */,
+				84CF9358286A53AA00EBD615 /* LoginViewController.m */,
+				84CF935A286A567A00EBD615 /* HomeViewController.h */,
+				84CF935B286A567A00EBD615 /* HomeViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		944831CBD0D4E2B08E4B847C /* Frameworks */ = {
@@ -419,6 +436,8 @@
 				84CF9323286A4EA700EBD615 /* AppDelegate.m in Sources */,
 				84CF9334286A4EA800EBD615 /* main.m in Sources */,
 				84CF9326286A4EA700EBD615 /* SceneDelegate.m in Sources */,
+				84CF9359286A53AA00EBD615 /* LoginViewController.m in Sources */,
+				84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
