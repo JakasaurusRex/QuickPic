@@ -20,6 +20,8 @@
 		84CF934A286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9349286A4EA800EBD615 /* QuickPicUITestsLaunchTests.m */; };
 		84CF9359286A53AA00EBD615 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9358286A53AA00EBD615 /* LoginViewController.m */; };
 		84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF935B286A567A00EBD615 /* HomeViewController.m */; };
+		84CF935F286A6D6F00EBD615 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF935E286A6D6F00EBD615 /* PostViewController.m */; };
+		84CF9362286A6D7B00EBD615 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9361286A6D7B00EBD615 /* ProfileViewController.m */; };
 		CDDBF6AB5D4697AB2DBAC846 /* Pods_QuickPicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA060DF859A919FC42DDA36A /* Pods_QuickPicTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,10 @@
 		84CF9358286A53AA00EBD615 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		84CF935A286A567A00EBD615 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		84CF935B286A567A00EBD615 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		84CF935D286A6D6F00EBD615 /* PostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		84CF935E286A6D6F00EBD615 /* PostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		84CF9360286A6D7B00EBD615 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		84CF9361286A6D7B00EBD615 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		85DEACBEAB1BDABD79DBB46D /* Pods-QuickPicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPicTests.release.xcconfig"; path = "Target Support Files/Pods-QuickPicTests/Pods-QuickPicTests.release.xcconfig"; sourceTree = "<group>"; };
 		B506C8C801153FC3F85171D8 /* Pods-QuickPic-QuickPicUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPic-QuickPicUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickPic-QuickPicUITests/Pods-QuickPic-QuickPicUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9D46D2C0E5F00DD0E61E36 /* Pods_QuickPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +181,10 @@
 				84CF9358286A53AA00EBD615 /* LoginViewController.m */,
 				84CF935A286A567A00EBD615 /* HomeViewController.h */,
 				84CF935B286A567A00EBD615 /* HomeViewController.m */,
+				84CF935D286A6D6F00EBD615 /* PostViewController.h */,
+				84CF935E286A6D6F00EBD615 /* PostViewController.m */,
+				84CF9360286A6D7B00EBD615 /* ProfileViewController.h */,
+				84CF9361286A6D7B00EBD615 /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -429,7 +439,9 @@
 			files = (
 				84CF9323286A4EA700EBD615 /* AppDelegate.m in Sources */,
 				84CF9334286A4EA800EBD615 /* main.m in Sources */,
+				84CF935F286A6D6F00EBD615 /* PostViewController.m in Sources */,
 				84CF9326286A4EA700EBD615 /* SceneDelegate.m in Sources */,
+				84CF9362286A6D7B00EBD615 /* ProfileViewController.m in Sources */,
 				84CF9359286A53AA00EBD615 /* LoginViewController.m in Sources */,
 				84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */,
 			);
