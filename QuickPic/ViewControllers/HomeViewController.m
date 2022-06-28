@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "PostCell.h"
 #import "Post.h"
+#import "Parse/PFImageView.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,11 +23,28 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    //Pull to refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
     // Do any additional setup after loading the view.
+    [self query];
+    [self.tableView reloadData];
+    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(query) userInfo:nil repeats:true];
+
 }
 
 - (IBAction)logoutButton:(id)sender {
     [self logout];
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self query];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
 }
 
 -(void) logout{
@@ -46,11 +64,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
+    [query includeKey:@"author"];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             // do something with the array of object returned by the call
             self.posts = posts;
+            NSLog(@"Received Posts!");
+            [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -58,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return [self.posts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,18 +88,24 @@
     Post *post = self.posts[indexPath.row];
     
     cell.username.text = post.author[@"username"];
-    cell.caption.text = post.caption;
+    cell.caption.text = post[@"caption"];
     
     //turning PFFileObject that is the post image into data to be used to turn into an image
     [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if(error == nil) {
             cell.postImage.image = [UIImage imageWithData:data];
+            NSLog(@"Image loaded");
         } else {
-            NSLog(@"Error receiving image");
+            NSLog(@"Error loading image");
         }
     }];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 /*

@@ -36,14 +36,33 @@
     NSLog(@"Post canceled");
 }
 - (IBAction)shareButton:(id)sender {
-    if(self.picked) {
+    if(![UIImagePNGRepresentation(self.postImage.image) isEqualToData:UIImagePNGRepresentation([UIImage imageNamed:@"image_placeholder"])]) {
         if([self.textView.text isEqualToString:@"Write a caption..."]) {
             self.textView.text = @"";
         }
         UIImage *resizedImage = [self resizeImage:self.postImage.image withSize:CGSizeMake(300, 300)];
         [Post postUserImage:resizedImage withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            NSLog(@"User made post");
-            [self dismissViewControllerAnimated:true completion:nil];
+            if(error == nil) {
+                NSLog(@"User made post");
+                [self dismissViewControllerAnimated:true completion:nil];
+            } else {
+                NSLog(@"Error posting");
+            }
+        }];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No image selected"
+                                                                                   message:@"Please select an image to post."
+                                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+        // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                                 // handle response here.
+                                                         }];
+        // add the OK action to the alert controller
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
         }];
     }
 }

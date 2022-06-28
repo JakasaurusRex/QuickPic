@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yOi-bW-CpI">
-                                <rect key="frame" x="0.0" y="145.66666666666669" width="390" height="698.33333333333326"/>
+                                <rect key="frame" x="0.0" y="145.66666666666669" width="390" height="615.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="431" id="yRp-Df-1hI" customClass="PostCell">
@@ -130,31 +130,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05L-k1-oUC">
-                                                    <rect key="frame" x="20" y="19" width="79.666666666666671" height="20"/>
+                                                    <rect key="frame" x="20" y="19" width="79.666666666666671" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eH0-wc-KdW">
-                                                    <rect key="frame" x="20" y="47" width="300" height="300"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eH0-wc-KdW">
+                                                    <rect key="frame" x="0.0" y="27" width="390" height="388"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="WEx-n8-xTk"/>
-                                                        <constraint firstAttribute="height" constant="300" id="jGX-EX-hbN"/>
+                                                        <constraint firstAttribute="width" secondItem="eH0-wc-KdW" secondAttribute="height" multiplier="1:1" id="Rya-hY-791"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thh-pV-upL">
-                                                    <rect key="frame" x="20.000000000000004" y="355" width="53.333333333333343" height="18"/>
+                                                    <rect key="frame" x="20.000000000000004" y="423" width="53.333333333333343" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Thh-pV-upL" secondAttribute="bottom" constant="8" id="25j-CW-8Od"/>
                                                 <constraint firstItem="Thh-pV-upL" firstAttribute="top" secondItem="eH0-wc-KdW" secondAttribute="bottom" constant="8.0000000000000568" id="4oE-gV-Uy2"/>
-                                                <constraint firstItem="eH0-wc-KdW" firstAttribute="leading" secondItem="8J4-Eu-78G" secondAttribute="leading" constant="20" symbolic="YES" id="D91-zO-nRG"/>
+                                                <constraint firstItem="eH0-wc-KdW" firstAttribute="leading" secondItem="8J4-Eu-78G" secondAttribute="leading" id="D91-zO-nRG"/>
+                                                <constraint firstItem="Thh-pV-upL" firstAttribute="leading" secondItem="05L-k1-oUC" secondAttribute="leading" id="eSf-Gj-2wg"/>
+                                                <constraint firstAttribute="trailing" secondItem="eH0-wc-KdW" secondAttribute="trailing" id="eht-PL-S9C"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="05L-k1-oUC" secondAttribute="trailing" constant="10" id="hRN-Rn-Dbj"/>
                                                 <constraint firstItem="05L-k1-oUC" firstAttribute="top" secondItem="8J4-Eu-78G" secondAttribute="top" constant="19" id="kT3-EN-Wxs"/>
-                                                <constraint firstItem="Thh-pV-upL" firstAttribute="leading" secondItem="eH0-wc-KdW" secondAttribute="leading" id="r3e-Vl-Vgr"/>
                                                 <constraint firstItem="05L-k1-oUC" firstAttribute="leading" secondItem="8J4-Eu-78G" secondAttribute="leading" constant="20" symbolic="YES" id="tIM-Pd-2SF"/>
                                                 <constraint firstItem="eH0-wc-KdW" firstAttribute="top" secondItem="05L-k1-oUC" secondAttribute="bottom" constant="8" symbolic="YES" id="va9-IU-P38"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Thh-pV-upL" secondAttribute="trailing" constant="10" id="wZI-Kg-gOG"/>
@@ -183,7 +184,7 @@
                             <constraint firstItem="PaN-nH-KPv" firstAttribute="leading" secondItem="OOi-KI-uZs" secondAttribute="leading" constant="28" id="1mz-Ys-ce9"/>
                             <constraint firstItem="OOi-KI-uZs" firstAttribute="trailing" secondItem="yOi-bW-CpI" secondAttribute="trailing" id="2z8-4R-Kcd"/>
                             <constraint firstItem="yOi-bW-CpI" firstAttribute="leading" secondItem="OOi-KI-uZs" secondAttribute="leading" id="ToS-6B-qp1"/>
-                            <constraint firstItem="yOi-bW-CpI" firstAttribute="bottom" secondItem="OOi-KI-uZs" secondAttribute="bottom" constant="83" id="ilk-Wd-Dcn"/>
+                            <constraint firstItem="yOi-bW-CpI" firstAttribute="bottom" secondItem="OOi-KI-uZs" secondAttribute="bottom" id="ilk-Wd-Dcn"/>
                             <constraint firstItem="yOi-bW-CpI" firstAttribute="top" secondItem="PaN-nH-KPv" secondAttribute="bottom" id="jun-7s-00w"/>
                         </constraints>
                     </view>
@@ -273,10 +274,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Share"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="dca-wy-clA" eventType="touchUpInside" id="Ji8-zD-oTn"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="shareButton:" destination="dca-wy-clA" id="99a-nN-yXq"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

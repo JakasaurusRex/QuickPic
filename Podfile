@@ -7,6 +7,7 @@ target 'QuickPic' do
 
   # Pods for QuickPic
   pod 'Parse'
+  pod 'Parse/UI'
   target 'QuickPicTests' do
     inherit! :search_paths
     # Pods for testing
