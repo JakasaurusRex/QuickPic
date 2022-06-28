@@ -48,6 +48,7 @@
     // set user properties
     newUser.username = self.username.text;
     newUser.password = self.password.text;
+    newUser[@"profilePic"] = [self getPFFileFromImage:[UIImage imageNamed:@"image_placeholder"]];
     
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -60,6 +61,7 @@
             NSLog(@"User registered successfully");
             // manually segue to logged in view
             self.firstTime = YES;
+            
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
@@ -107,6 +109,22 @@
     [self presentViewController:alert animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
+}
+
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 

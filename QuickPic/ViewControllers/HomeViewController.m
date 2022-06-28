@@ -10,6 +10,7 @@
 #import "PostCell.h"
 #import "Post.h"
 #import "Parse/PFImageView.h"
+#import "DetailsViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -103,19 +104,25 @@
     return cell;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"detailSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        detailVC.post = self.posts[indexPath.row];
+    }
 }
-*/
 
 @end
