@@ -22,6 +22,7 @@
 		84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF935B286A567A00EBD615 /* HomeViewController.m */; };
 		84CF935F286A6D6F00EBD615 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF935E286A6D6F00EBD615 /* PostViewController.m */; };
 		84CF9362286A6D7B00EBD615 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9361286A6D7B00EBD615 /* ProfileViewController.m */; };
+		84CF9366286A882400EBD615 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9365286A882400EBD615 /* Post.m */; };
 		CDDBF6AB5D4697AB2DBAC846 /* Pods_QuickPicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA060DF859A919FC42DDA36A /* Pods_QuickPicTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		84CF935E286A6D6F00EBD615 /* PostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		84CF9360286A6D7B00EBD615 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		84CF9361286A6D7B00EBD615 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		84CF9364286A882400EBD615 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		84CF9365286A882400EBD615 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		85DEACBEAB1BDABD79DBB46D /* Pods-QuickPicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPicTests.release.xcconfig"; path = "Target Support Files/Pods-QuickPicTests/Pods-QuickPicTests.release.xcconfig"; sourceTree = "<group>"; };
 		B506C8C801153FC3F85171D8 /* Pods-QuickPic-QuickPicUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPic-QuickPicUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickPic-QuickPicUITests/Pods-QuickPic-QuickPicUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9D46D2C0E5F00DD0E61E36 /* Pods_QuickPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +146,7 @@
 		84CF9320286A4EA700EBD615 /* QuickPic */ = {
 			isa = PBXGroup;
 			children = (
+				84CF9363286A87EC00EBD615 /* Model */,
 				84CF9356286A538A00EBD615 /* ViewControllers */,
 				84CF9321286A4EA700EBD615 /* AppDelegate.h */,
 				84CF9322286A4EA700EBD615 /* AppDelegate.m */,
@@ -187,6 +191,15 @@
 				84CF9361286A6D7B00EBD615 /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		84CF9363286A87EC00EBD615 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84CF9364286A882400EBD615 /* Post.h */,
+				84CF9365286A882400EBD615 /* Post.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		944831CBD0D4E2B08E4B847C /* Frameworks */ = {
@@ -444,6 +457,7 @@
 				84CF9362286A6D7B00EBD615 /* ProfileViewController.m in Sources */,
 				84CF9359286A53AA00EBD615 /* LoginViewController.m in Sources */,
 				84CF935C286A567A00EBD615 /* HomeViewController.m in Sources */,
+				84CF9366286A882400EBD615 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
