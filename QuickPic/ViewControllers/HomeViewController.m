@@ -7,8 +7,11 @@
 
 #import "HomeViewController.h"
 #import <Parse/Parse.h>
+#import "PostCell.h"
+#import "Post.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *posts;
 
 @end
@@ -17,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
 }
 
@@ -50,6 +55,30 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    
+    Post *post = self.posts[indexPath.row];
+    
+    cell.username.text = post.author[@"username"];
+    cell.caption.text = post.caption;
+    
+    //turning PFFileObject that is the post image into data to be used to turn into an image
+    [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if(error == nil) {
+            cell.postImage.image = [UIImage imageWithData:data];
+        } else {
+            NSLog(@"Error receiving image");
+        }
+    }];
+    
+    return cell;
 }
 
 /*
