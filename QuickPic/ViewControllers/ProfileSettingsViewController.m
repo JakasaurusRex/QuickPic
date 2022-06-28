@@ -51,7 +51,15 @@
     user[@"desc"] = self.bioText.text;
     UIImage *resizedImage = [self resizeImage:self.profilePic.image withSize:CGSizeMake(128, 128)];
     user[@"profilePic"] = [self getPFFileFromImage:resizedImage];
-    [self dismissViewControllerAnimated:true completion:nil];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error == nil) {
+            NSLog(@"User info saved");
+            [self dismissViewControllerAnimated:true completion:nil];
+        } else {
+            NSLog(@"Error saving user information");
+        }
+    }];
+    
 }
 
 - (void) pictureRecognizerGesture {

@@ -44,9 +44,21 @@
         [Post postUserImage:resizedImage withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(error == nil) {
                 NSLog(@"User made post");
-                [self dismissViewControllerAnimated:true completion:nil];
             } else {
                 NSLog(@"Error posting");
+                return;
+            }
+        }];
+        PFUser *user = [PFUser currentUser];
+        int counter = [user[@"postCount"] intValue];
+        user[@"postCount"] =  @(counter+1);
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if(error == nil) {
+                NSLog(@"Post count increased");
+                [self dismissViewControllerAnimated:true completion:nil];
+            } else {
+                NSLog(@"Error increasing post count");
+                return;
             }
         }];
     } else {
@@ -83,6 +95,15 @@
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 
+}
+
+- (IBAction)libraryButton:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {

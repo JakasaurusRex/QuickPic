@@ -135,8 +135,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //If this is the users first time (they just registered) send that information
     if(self.firstTime == YES) {
-        UINavigationController *navigationController = [segue destinationViewController];
-        HomeViewController *homeController = (HomeViewController*)navigationController.topViewController;
+        UITabBarController *tabBarController = [segue destinationViewController];
+        UINavigationController *navController = tabBarController.navigationController;
+        HomeViewController *homeController = (HomeViewController*)navController.topViewController;
         homeController.firstTime = YES;
     }
 }

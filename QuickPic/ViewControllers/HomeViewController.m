@@ -89,7 +89,11 @@
     Post *post = self.posts[indexPath.row];
     
     cell.username.text = post.author[@"username"];
+    
     cell.caption.text = post[@"caption"];
+    if(![cell.caption.text isEqualToString:@""]) {
+        cell.usernameCap.text = post.author[@"username"];
+    }
     
     //turning PFFileObject that is the post image into data to be used to turn into an image
     [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
@@ -100,6 +104,23 @@
             NSLog(@"Error loading image");
         }
     }];
+    
+    [post.author[@"profilePic"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if(error == nil) {
+            cell.profilePic.image = [UIImage imageWithData:data];
+            NSLog(@"Image loaded");
+        } else {
+            NSLog(@"Error loading image");
+        }
+    }];
+    
+    cell.profilePic.layer.masksToBounds = false;
+    cell.profilePic.layer.cornerRadius = cell.profilePic.bounds.size.width/2;
+    cell.profilePic.clipsToBounds = true;
+    cell.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+    cell.profilePic.layer.borderWidth = 0.05;
+    
+    
     
     return cell;
 }
