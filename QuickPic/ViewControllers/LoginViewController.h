@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewController : UIViewController
-@property (nonatomic) int firstTime;
+@property BOOL firstTime;
 @end
 
 NS_ASSUME_NONNULL_END

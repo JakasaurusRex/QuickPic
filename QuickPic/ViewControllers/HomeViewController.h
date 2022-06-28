@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController
-@property (nonatomic) int firstTime;
+@property (nonatomic) BOOL firstTime;
 @end
 
 NS_ASSUME_NONNULL_END

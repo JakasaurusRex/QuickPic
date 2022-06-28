@@ -29,13 +29,13 @@
 }
 - (IBAction)signupButton:(id)sender {
     if([self.username.text isEqual:@""]) {
-        [self alerter:@"Username required":@"Please enter a username."];
+        [self alertWithTitle:@"Username required"message:@"Please enter a username."];
     } else if([self.password.text isEqual:@""]) {
-        [self alerter:@"Password required":@"Please enter a password."];
+        [self alertWithTitle:@"Password required"message:@"Please enter a password."];
     } else if([self.username.text rangeOfString:@" "].location != NSNotFound){
-        [self alerter:@"Invalid username":@"Please enter a valid username. Usernames cannot contain spaces."];
+        [self alertWithTitle:@"Invalid username"message:@"Please enter a valid username. Usernames cannot contain spaces."];
     } else if([self.password.text rangeOfString:@" "].location != NSNotFound) {
-        [self alerter:@"Invalid password":@"Please enter a valid password. Password cannot contain spaces."];
+        [self alertWithTitle:@"Invalid password"message:@"Please enter a valid password. Password cannot contain spaces."];
     } else {
         [self registerUser];
     }
@@ -54,12 +54,12 @@
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
             if(error.code == 202) {
-                [self alerter:@"Username taken":@"An account already exists with this username, please enter another valid username."];
+                [self alertWithTitle:@"Username taken"message:@"An account already exists with this username, please enter another valid username."];
             }
         } else {
             NSLog(@"User registered successfully");
             // manually segue to logged in view
-            self.firstTime = 1;
+            self.firstTime = YES;
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
@@ -69,20 +69,22 @@
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
+    if([self.username.text isEqual:@""]) {
+        [self alertWithTitle:@"Username required"message:@"Please enter a username."];
+        return;
+    } else if([self.password.text isEqual:@""]) {
+        [self alertWithTitle:@"Password required"message:@"Please enter a password."];
+        return;
+    }
+    
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
-            if([self.username.text isEqual:@""]) {
-                [self alerter:@"Username required":@"Please enter a username."];
-            } else if([self.password.text isEqual:@""]) {
-                [self alerter:@"Password required":@"Please enter a password."];
-            } else {
-                [self alerter:@"Invalid login information":@"Please enter valid login information or create an account by clicking signup with a username and password."];
-            }
-            
+            [self alertWithTitle:@"Invalid login information" message: error.localizedDescription];
+            return;
         } else {
             NSLog(@"User logged in successfully");
-            self.firstTime = 0;
+            self.firstTime = NO;
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
@@ -90,7 +92,7 @@
 
 
 //Method to create an alert on the login screen.
-- (void) alerter: (NSString *)title :(NSString *)text {
+- (void) alertWithTitle: (NSString *)title message:(NSString *)text {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                                message:text
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
@@ -114,10 +116,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //If this is the users first time (they just registered) send that information
-    if(self.firstTime == 1) {
+    if(self.firstTime == YES) {
         UINavigationController *navigationController = [segue destinationViewController];
         HomeViewController *homeController = (HomeViewController*)navigationController.topViewController;
-        homeController.firstTime = 1;
+        homeController.firstTime = YES;
     }
 }
 
