@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 
 @interface HomeViewController ()
+@property (nonatomic, strong) NSArray *posts;
 
 @end
 
@@ -31,6 +32,22 @@
             NSLog(@"User logged out successfully");
             // display view controller that needs to shown after successful login
             [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
+        }
+    }];
+}
+
+-(void) query {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.posts = posts;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
         }
     }];
 }

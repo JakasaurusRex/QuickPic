@@ -6,10 +6,13 @@
 //
 
 #import "PostViewController.h"
+#import "Post.h"
+#import <Parse/Parse.h>
 
 @interface PostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property int picked;
 
 @end
 
@@ -33,7 +36,16 @@
     NSLog(@"Post canceled");
 }
 - (IBAction)shareButton:(id)sender {
-    
+    if(self.picked) {
+        if([self.textView.text isEqualToString:@"Write a caption..."]) {
+            self.textView.text = @"";
+        }
+        UIImage *resizedImage = [self resizeImage:self.postImage.image withSize:CGSizeMake(300, 300)];
+        [Post postUserImage:resizedImage withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            NSLog(@"User made post");
+            [self dismissViewControllerAnimated:true completion:nil];
+        }];
+    }
 }
 
 -(void) didTapImage {
@@ -69,6 +81,20 @@
 - (void) textViewDidBeginEditing:(UITextView *) textView {
   [textView setText:@""];
   //other awesome stuff here...
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 /*
