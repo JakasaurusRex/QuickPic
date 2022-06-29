@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.username.text = self.post.author[@"username"];
     self.caption.text = self.post[@"caption"];
+    self.titleUsername.text = self.post.author[@"username"];
     
     self.createdAt.text = self.post[@"updatedAt"];
     
@@ -34,6 +35,20 @@
             NSLog(@"Error loading image");
         }
     }];
+    [self.post.author[@"profilePic"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if(error == nil) {
+            self.profilePic.image = [UIImage imageWithData:data];
+            NSLog(@"Image loaded");
+        } else {
+            NSLog(@"Error loading image");
+        }
+    }];
+    
+    self.profilePic.layer.masksToBounds = false;
+    self.profilePic.layer.cornerRadius = self.profilePic.bounds.size.width/2;
+    self.profilePic.clipsToBounds = true;
+    self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+    self.profilePic.layer.borderWidth = 0.05;
     // Do any additional setup after loading the view.
 }
 

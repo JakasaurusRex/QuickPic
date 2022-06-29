@@ -120,27 +120,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kvg-Kl-NnA" userLabel="Post Image">
-                                <rect key="frame" x="0.0" y="88" width="390" height="390"/>
+                                <rect key="frame" x="0.0" y="128" width="390" height="390"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kvg-Kl-NnA" secondAttribute="height" multiplier="1:1" id="V4V-3W-0vc"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-gq-Tum">
-                                <rect key="frame" x="16" y="486" width="80.333333333333329" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <rect key="frame" x="16" y="551" width="76.333333333333329" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIS-5d-dtR">
-                                <rect key="frame" x="104.33333333333331" y="486" width="80" height="21"/>
+                                <rect key="frame" x="16" y="526" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-vw-q5X">
-                                <rect key="frame" x="16" y="510" width="51" height="17"/>
+                                <rect key="frame" x="102.33333333333333" y="553.33333333333337" width="50.999999999999986" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9Q-kf-6Qo" userLabel="Pfp">
+                                <rect key="frame" x="16" y="95" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Cea-3D-qSf"/>
+                                    <constraint firstAttribute="width" constant="25" id="qIX-BY-aBe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7se-p3-zqi">
+                                <rect key="frame" x="48.999999999999993" y="98.666666666666671" width="73.333333333333314" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -149,15 +162,20 @@
                         <constraints>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mIS-5d-dtR" secondAttribute="trailing" symbolic="YES" id="0cS-Dv-Q4H"/>
                             <constraint firstItem="M8C-gq-Tum" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="5oh-4u-rf2"/>
+                            <constraint firstItem="j9Q-kf-6Qo" firstAttribute="top" secondItem="v9D-Tb-U2l" secondAttribute="top" constant="7" id="GNd-hW-GY8"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" secondItem="Kvg-Kl-NnA" secondAttribute="trailing" id="Gj1-Tw-dB5"/>
-                            <constraint firstItem="mIS-5d-dtR" firstAttribute="top" secondItem="v9D-Tb-U2l" secondAttribute="top" constant="398" id="Ip4-li-aTa"/>
-                            <constraint firstItem="mIS-5d-dtR" firstAttribute="leading" secondItem="M8C-gq-Tum" secondAttribute="trailing" constant="8" symbolic="YES" id="LU0-hO-bo8"/>
-                            <constraint firstItem="c2a-vw-q5X" firstAttribute="top" secondItem="M8C-gq-Tum" secondAttribute="bottom" constant="3" id="Lto-tm-jCu"/>
+                            <constraint firstItem="c2a-vw-q5X" firstAttribute="centerY" secondItem="M8C-gq-Tum" secondAttribute="centerY" constant="1.2" id="HMa-rd-UEe"/>
+                            <constraint firstItem="mIS-5d-dtR" firstAttribute="top" secondItem="Kvg-Kl-NnA" secondAttribute="bottom" constant="8" symbolic="YES" id="LC3-k9-TGy"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2a-vw-q5X" secondAttribute="trailing" symbolic="YES" id="O4Y-Hj-S1E"/>
                             <constraint firstItem="Kvg-Kl-NnA" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" id="a5V-eZ-Xzc"/>
-                            <constraint firstItem="M8C-gq-Tum" firstAttribute="top" secondItem="Kvg-Kl-NnA" secondAttribute="bottom" constant="8" symbolic="YES" id="csE-aY-LGu"/>
-                            <constraint firstItem="c2a-vw-q5X" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="e9D-x6-leg"/>
-                            <constraint firstItem="Kvg-Kl-NnA" firstAttribute="top" secondItem="v9D-Tb-U2l" secondAttribute="top" id="h2F-RH-X3l"/>
+                            <constraint firstItem="M8C-gq-Tum" firstAttribute="top" secondItem="mIS-5d-dtR" secondAttribute="bottom" constant="4" id="auS-XW-4we"/>
+                            <constraint firstItem="7se-p3-zqi" firstAttribute="centerY" secondItem="j9Q-kf-6Qo" secondAttribute="centerY" id="dDN-Hm-0ej"/>
+                            <constraint firstItem="7se-p3-zqi" firstAttribute="leading" secondItem="j9Q-kf-6Qo" secondAttribute="trailing" constant="8" symbolic="YES" id="ddL-EN-5kb"/>
+                            <constraint firstItem="mIS-5d-dtR" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="eu4-1v-Cxa"/>
+                            <constraint firstItem="j9Q-kf-6Qo" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="f5S-HH-Pgt"/>
+                            <constraint firstItem="c2a-vw-q5X" firstAttribute="leading" secondItem="M8C-gq-Tum" secondAttribute="trailing" constant="10" id="lKv-nV-i6A"/>
+                            <constraint firstItem="Kvg-Kl-NnA" firstAttribute="top" secondItem="j9Q-kf-6Qo" secondAttribute="bottom" constant="8" symbolic="YES" id="qNv-vs-wb4"/>
+                            <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7se-p3-zqi" secondAttribute="trailing" constant="10" id="t95-qt-rwj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="072-oI-5kL">
@@ -179,6 +197,8 @@
                         <outlet property="caption" destination="c2a-vw-q5X" id="lLZ-ll-RU9"/>
                         <outlet property="createdAt" destination="mIS-5d-dtR" id="PwG-rW-r2g"/>
                         <outlet property="postImage" destination="Kvg-Kl-NnA" id="Asc-nU-GHs"/>
+                        <outlet property="profilePic" destination="j9Q-kf-6Qo" id="77P-EF-Tac"/>
+                        <outlet property="titleUsername" destination="7se-p3-zqi" id="nnI-eK-ahw"/>
                         <outlet property="username" destination="M8C-gq-Tum" id="5Sx-25-HHZ"/>
                     </connections>
                 </viewController>
@@ -829,7 +849,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ScY-q9-v6B"/>
+        <segue reference="O0K-rj-XBP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>
