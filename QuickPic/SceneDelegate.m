@@ -22,7 +22,7 @@
     PFUser *user = [PFUser currentUser];
    if (user != nil) {
        NSLog(@"Welcome back %@ 😀", user.username);
-
+       user[@"firstTime"] = @(0);
        // TODO: Load Chat view controller and set as root view controller
        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
        UITabBarController *tabController = [storyboard instantiateViewControllerWithIdentifier:@"TabController"];

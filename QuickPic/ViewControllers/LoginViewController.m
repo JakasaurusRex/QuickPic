@@ -49,6 +49,7 @@
     newUser.username = self.username.text;
     newUser.password = self.password.text;
     newUser[@"profilePic"] = [self getPFFileFromImage:[UIImage imageNamed:@"image_placeholder"]];
+    newUser[@"firstTime"] = @(true);
     
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -70,7 +71,6 @@
 - (void)loginUser {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
-    
     if([self.username.text isEqual:@""]) {
         [self alertWithTitle:@"Username required"message:@"Please enter a username."];
         return;
@@ -86,7 +86,7 @@
             return;
         } else {
             NSLog(@"User logged in successfully");
-            self.firstTime = NO;
+            user[@"firstTime"] = @(false);
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
@@ -136,7 +136,7 @@
     //If this is the users first time (they just registered) send that information
     if(self.firstTime == YES) {
         UITabBarController *tabBarController = [segue destinationViewController];
-        UINavigationController *navController = tabBarController.navigationController;
+        UINavigationController *navController = (UINavigationController *)tabBarController.selectedViewController;
         HomeViewController *homeController = (HomeViewController*)navController.topViewController;
         homeController.firstTime = YES;
     }

@@ -35,7 +35,12 @@
     [self query];
     [self.tableView reloadData];
     [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(query) userInfo:nil repeats:true];
-
+    if([PFUser.currentUser[@"firstTime"] intValue] == 1) {
+        [self alertWithTitle:@"Welcome to QuickPic!" message:@"If you would like to customize your profile and add your email go to the settings page found on the top right corner of the profile."];
+        PFUser.currentUser[@"firstTime"] = @(0);
+    } else if(PFUser.currentUser[@"email"] == nil) {
+        [self alertWithTitle:@"Please add email" message:@"It appears you do not have an email on your account. Please go to setting on the profile page to add one to reset your password if needed."];
+    }
 }
 
 
@@ -165,6 +170,22 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
+- (void) alertWithTitle: (NSString *)title message:(NSString *)text {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                               message:text
+                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                     }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+}
 
 #pragma mark - Navigation
 
