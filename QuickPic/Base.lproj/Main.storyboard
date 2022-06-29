@@ -482,6 +482,7 @@
                                         <size key="customSize" width="128" height="128"/>
                                         <connections>
                                             <outlet property="postPic" destination="Sr1-tk-miN" id="wni-oG-Rma"/>
+                                            <segue destination="r3O-ek-XMD" kind="presentation" identifier="detailsSegue" modalPresentationStyle="fullScreen" id="ScY-q9-v6B"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -827,6 +828,9 @@
             <point key="canvasLocation" x="3155.3846153846152" y="-658.29383886255926"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ScY-q9-v6B"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

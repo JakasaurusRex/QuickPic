@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "ProfileViewCell.h"
 #import "Post.h"
+#import "DetailsViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -98,14 +99,20 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        detailVC.post = self.posts[indexPath.row];
+    }
 }
-*/
+
 
 @end
