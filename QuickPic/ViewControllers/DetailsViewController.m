@@ -23,7 +23,10 @@
     self.caption.text = self.post[@"caption"];
     self.titleUsername.text = self.post.author[@"username"];
     
-    self.createdAt.text = self.post[@"updatedAt"];
+    NSDate *date = self.post.createdAt;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM d, yyyy"];
+    self.createdAt.text = [dateFormatter stringFromDate:date];
     
     
     //turning PFFileObject that is the post image into data to be used to turn into an image
