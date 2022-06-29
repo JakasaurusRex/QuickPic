@@ -62,6 +62,18 @@
     
 }
 
+- (IBAction)logoutButton:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        if(error != nil) {
+            NSLog(@"rip cant logout: %@", error);
+        } else {
+            NSLog(@"User logged out successfully");
+            // display view controller that needs to shown after successful login
+            [self performSegueWithIdentifier:@"logoutSegue" sender:nil];
+        }
+    }];
+}
+
 - (void) pictureRecognizerGesture {
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImage)];
     [self.profilePic addGestureRecognizer:gesture];
