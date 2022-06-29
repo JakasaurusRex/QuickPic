@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *desc;
 @property (weak, nonatomic) IBOutlet UILabel *pronouns;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (strong, nonatomic) PFUser *user;
 
 @end
 
