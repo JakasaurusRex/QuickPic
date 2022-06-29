@@ -28,6 +28,9 @@
     if(![user[@"desc"] isEqualToString:@""]) {
         [self.bioText setText:user[@"desc"]];
     }
+    if(![user[@"email"] isEqualToString:@""]) {
+        self.emailField.text = user[@"email"];
+    }
     [self pictureRecognizerGesture];
     [user[@"profilePic"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if(error == nil) {
@@ -48,6 +51,7 @@
     PFUser *user = [PFUser currentUser];
     user[@"name"] = self.nameField.text;
     user[@"pronouns"] = self.pronounField.text;
+    user[@"email"] = self.emailField.text;
     user[@"desc"] = self.bioText.text;
     UIImage *resizedImage = [self resizeImage:self.profilePic.image withSize:CGSizeMake(128, 128)];
     user[@"profilePic"] = [self getPFFileFromImage:resizedImage];

@@ -106,9 +106,57 @@
     cell.profilePic.contentMode = UIViewContentModeScaleAspectFill;
     cell.profilePic.layer.borderWidth = 0.05;
     
+    NSDate *postDate = post.createdAt;
+    NSDate *curDate = [NSDate date];
+    NSTimeInterval diff = [curDate timeIntervalSinceDate:postDate];
+    
+    //format the createdstring based on if it was tweeted an hour or more ago or a minute or more ago
+    NSInteger interval = diff;
+    long seconds = interval % 60;
+    long minutes = (interval / 60) % 60;
+    long hours = (interval / 3600);
+    if(hours >= 24) {
+        if(hours >48) {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld days ago", hours/24];
+        } else {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld day ago", hours/24];
+        }
+    } else if(hours >= 1) {
+        if(hours == 1) {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld hour ago", hours];
+        } else {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld hours ago", hours];
+        }
+        
+    } else if(minutes >= 1) {
+        if(minutes == 1) {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld minute ago", minutes];
+        } else {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld minutes ago", minutes];
+        }
+    } else {
+        if(seconds > 1) {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld seconds ago", seconds];
+        } else {
+            cell.timeSInce.text = [NSString stringWithFormat:@"%ld second ago", seconds];
+        }
+    }
+    
+    // allow user to go to other profiles
+    cell.username.userInteractionEnabled = YES;
+    cell.profilePic.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = \
+    [[UITapGestureRecognizer alloc]
+     initWithTarget:self action:@selector(didTapWithGesture:)];
+    [cell.username addGestureRecognizer:tapGesture];
+    [cell.profilePic addGestureRecognizer:tapGesture];
     
     
     return cell;
+}
+
+- (void)didTapWithGesture:(UITapGestureRecognizer *)tapGesture {
+    
 }
 
 

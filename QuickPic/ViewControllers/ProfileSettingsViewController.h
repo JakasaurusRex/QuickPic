@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *pronounField;
 @property (weak, nonatomic) IBOutlet UITextView *bioText;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 @end
 
