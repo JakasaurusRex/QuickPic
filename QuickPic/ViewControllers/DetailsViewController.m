@@ -22,7 +22,7 @@
     self.username.text = self.post.author[@"username"];
     self.caption.text = self.post[@"caption"];
     
-    self.createdAt.text = self.post[@"createdAt"];
+    self.createdAt.text = self.post[@"updatedAt"];
     
     
     //turning PFFileObject that is the post image into data to be used to turn into an image
