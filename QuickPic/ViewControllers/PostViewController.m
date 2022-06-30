@@ -23,6 +23,10 @@
     // Do any additional setup after loading the view.
     self.textView.delegate = self;
     [self pictureRecognizerGesture];
+    PFUser *user = [PFUser currentUser];
+    if(user[@"email"] == nil) {
+        [self alertWithTitle:@"Email not added" message:@"It is required to put in your email before continuing. Please go to the settings page found on the profile to customize your profile page and add your email."];
+    }
 }
 
 - (void) pictureRecognizerGesture {
@@ -135,6 +139,23 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (void) alertWithTitle: (NSString *)title message:(NSString *)text {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                               message:text
+                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                        [self dismissViewControllerAnimated:true completion:nil];
+                                                     }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
 }
 
 /*
