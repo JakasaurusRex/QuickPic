@@ -26,10 +26,26 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
+    //Pull to refresh
+    self.collectionView.alwaysBounceVertical = YES;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:refreshControl atIndex:0];
+    
+    
     [self setup];
     [self query];
     [self.collectionView reloadData];
 }
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self query];
+    [self setup];
+    [self.collectionView reloadData];
+    [refreshControl endRefreshing];
+}
+
+
 - (IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
