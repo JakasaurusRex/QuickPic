@@ -52,7 +52,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 <img src='https://imgur.com/gallery/8nLijzj' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-![Kapture 2022-06-30 at 16 00 41](https://user-images.githubusercontent.com/48461874/176792481-72bd3816-b3d6-4c4c-9aa3-b3d9300cf7db.gif)
+
+![Kapture 2022-06-30 at 16 00 41](https://user-images.githubusercontent.com/48461874/176792546-c887f7a7-b08b-403b-ad71-25e250d64a55.gif)
+
 
 GIF created with [Kap](https://getkap.co/).
 
