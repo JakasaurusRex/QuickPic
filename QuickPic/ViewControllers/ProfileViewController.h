@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *pronouns;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (strong, nonatomic) PFUser *user;
-
 @end
 
 NS_ASSUME_NONNULL_END

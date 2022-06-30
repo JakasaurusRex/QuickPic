@@ -24,8 +24,20 @@
     // Do any additional setup after loading the view.
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.user = [PFUser currentUser];
     
-    PFUser *user = [PFUser currentUser];
+    [self query];
+    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    [self setup];
+}
+
+-(void) onTimer{
+    [self query];
+    [self setup];
+}
+
+-(void) setup {
+    PFUser *user = self.user;
     self.username.text = user.username;
     self.desc.text = user[@"desc"];
     self.pronouns.text = user[@"pronouns"];
@@ -47,9 +59,6 @@
     self.profileImage.clipsToBounds = true;
     self.profileImage.contentMode = UIViewContentModeScaleAspectFill;
     self.profileImage.layer.borderWidth = 0.05;
-    
-    [self query];
-    
 }
 
 - (IBAction)settingsButton:(id)sender {
@@ -83,7 +92,7 @@
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:PFUser.currentUser];
+    [query whereKey:@"author" equalTo:self.user];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {

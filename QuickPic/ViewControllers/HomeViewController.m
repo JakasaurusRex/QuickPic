@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "Parse/PFImageView.h"
 #import "DetailsViewController.h"
+#import "OtherProfileViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -155,6 +156,7 @@
      initWithTarget:self action:@selector(didTapWithGesture:)];
     [cell.username addGestureRecognizer:tapGesture];
     [cell.profilePic addGestureRecognizer:tapGesture];
+    [cell.profileButton setTitle:@"" forState:UIControlStateNormal];
     
     
     return cell;
@@ -198,6 +200,15 @@
         DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         detailVC.post = self.posts[indexPath.row];
+    } else if([segue.identifier isEqualToString:@"profileSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        OtherProfileViewController *profileController = (OtherProfileViewController*)navigationController.topViewController;
+         UIView *content = (UIView *)[(UIView *) sender superview];
+         PostCell *cell = (PostCell *)[content superview];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Post *post =self.posts[indexPath.row];
+        PFUser *user = post.author;
+        profileController.user = user;
     }
 }
 

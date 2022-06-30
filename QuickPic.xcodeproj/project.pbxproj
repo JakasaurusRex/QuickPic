@@ -27,6 +27,7 @@
 		84CF936D286BA07F00EBD615 /* ProfileSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF936C286BA07F00EBD615 /* ProfileSettingsViewController.m */; };
 		84CF9370286BB07400EBD615 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF936F286BB07400EBD615 /* DetailsViewController.m */; };
 		84CF9373286BB71500EBD615 /* ProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF9372286BB71500EBD615 /* ProfileViewCell.m */; };
+		84EB525E286D1CB10053D58F /* OtherProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB525D286D1CB10053D58F /* OtherProfileViewController.m */; };
 		CDDBF6AB5D4697AB2DBAC846 /* Pods_QuickPicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA060DF859A919FC42DDA36A /* Pods_QuickPicTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		84CF936F286BB07400EBD615 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		84CF9371286BB71500EBD615 /* ProfileViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewCell.h; sourceTree = "<group>"; };
 		84CF9372286BB71500EBD615 /* ProfileViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewCell.m; sourceTree = "<group>"; };
+		84EB525C286D1CB10053D58F /* OtherProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherProfileViewController.h; sourceTree = "<group>"; };
+		84EB525D286D1CB10053D58F /* OtherProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherProfileViewController.m; sourceTree = "<group>"; };
 		85DEACBEAB1BDABD79DBB46D /* Pods-QuickPicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPicTests.release.xcconfig"; path = "Target Support Files/Pods-QuickPicTests/Pods-QuickPicTests.release.xcconfig"; sourceTree = "<group>"; };
 		B506C8C801153FC3F85171D8 /* Pods-QuickPic-QuickPicUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPic-QuickPicUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuickPic-QuickPicUITests/Pods-QuickPic-QuickPicUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9D46D2C0E5F00DD0E61E36 /* Pods_QuickPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,8 @@
 				84CF9324286A4EA700EBD615 /* SceneDelegate.h */,
 				84CF9325286A4EA700EBD615 /* SceneDelegate.m */,
 				84CF932A286A4EA700EBD615 /* Main.storyboard */,
+				84EB525C286D1CB10053D58F /* OtherProfileViewController.h */,
+				84EB525D286D1CB10053D58F /* OtherProfileViewController.m */,
 				84CF932D286A4EA800EBD615 /* Assets.xcassets */,
 				84CF932F286A4EA800EBD615 /* LaunchScreen.storyboard */,
 				84CF9332286A4EA800EBD615 /* Info.plist */,
@@ -479,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CF9323286A4EA700EBD615 /* AppDelegate.m in Sources */,
+				84EB525E286D1CB10053D58F /* OtherProfileViewController.m in Sources */,
 				84CF9334286A4EA800EBD615 /* main.m in Sources */,
 				84CF9370286BB07400EBD615 /* DetailsViewController.m in Sources */,
 				84CF935F286A6D6F00EBD615 /* PostViewController.m in Sources */,

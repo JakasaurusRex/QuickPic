@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *usernameCap;
 @property (weak, nonatomic) IBOutlet UILabel *timeSInce;
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
 
 @end
 
