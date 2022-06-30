@@ -169,8 +169,6 @@
 				84CF9324286A4EA700EBD615 /* SceneDelegate.h */,
 				84CF9325286A4EA700EBD615 /* SceneDelegate.m */,
 				84CF932A286A4EA700EBD615 /* Main.storyboard */,
-				84EB525C286D1CB10053D58F /* OtherProfileViewController.h */,
-				84EB525D286D1CB10053D58F /* OtherProfileViewController.m */,
 				84CF932D286A4EA800EBD615 /* Assets.xcassets */,
 				84CF932F286A4EA800EBD615 /* LaunchScreen.storyboard */,
 				84CF9332286A4EA800EBD615 /* Info.plist */,
@@ -199,6 +197,8 @@
 		84CF9356286A538A00EBD615 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84EB525C286D1CB10053D58F /* OtherProfileViewController.h */,
+				84EB525D286D1CB10053D58F /* OtherProfileViewController.m */,
 				84CF9357286A53AA00EBD615 /* LoginViewController.h */,
 				84CF9358286A53AA00EBD615 /* LoginViewController.m */,
 				84CF935A286A567A00EBD615 /* HomeViewController.h */,

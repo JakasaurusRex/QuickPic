@@ -267,7 +267,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
-                                                        <segue destination="DfO-to-hmH" kind="presentation" modalPresentationStyle="fullScreen" id="2Fa-yy-gte"/>
+                                                        <segue destination="DfO-to-hmH" kind="presentation" identifier="profileSegue" modalPresentationStyle="fullScreen" id="2Fa-yy-gte"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -894,7 +894,7 @@
             </objects>
             <point key="canvasLocation" x="3155.3846153846152" y="-658.29383886255926"/>
         </scene>
-        <!--Other Profile View Controller-->
+        <!--Username-->
         <scene sceneID="Xph-mi-TOg">
             <objects>
                 <viewController id="eEY-Qt-NzB" customClass="OtherProfileViewController" sceneMemberID="viewController">
@@ -978,6 +978,7 @@
                                         <size key="customSize" width="128" height="128"/>
                                         <connections>
                                             <outlet property="postPic" destination="4CZ-KK-sF9" id="xG5-2X-dK5"/>
+                                            <segue destination="r3O-ek-XMD" kind="presentation" identifier="detailsSegue" modalPresentationStyle="fullScreen" id="VOT-1F-zwK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1006,38 +1007,28 @@
                             <constraint firstItem="u49-nh-lDR" firstAttribute="top" secondItem="kSj-IZ-RU5" secondAttribute="top" id="vHC-90-x1E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Iij-oH-hk7">
-                        <leftBarButtonItems>
-                            <barButtonItem style="plain" id="q2J-GI-Pmx">
-                                <inset key="imageInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bby-cq-PPg">
-                                    <rect key="frame" x="16" y="5" width="86" height="34.333333333333336"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="tintColor" systemColor="systemPinkColor"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.left.fill" catalog="system" title=""/>
-                                    <connections>
-                                        <action selector="backButton:" destination="feP-PP-1pX" eventType="touchUpInside" id="754-SP-UkK"/>
-                                        <action selector="backButton:" destination="eEY-Qt-NzB" eventType="touchUpInside" id="iCp-a2-BJ2"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="fyT-Ol-4AQ">
-                                <view key="customView" contentMode="scaleToFill" id="C5l-Ec-dTd">
-                                    <rect key="frame" x="110" y="5.6666666666666679" width="86" height="33"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                    <navigationItem key="navigationItem" title="Username" largeTitleDisplayMode="never" id="Iij-oH-hk7">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="q2J-GI-Pmx">
+                            <inset key="imageInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bby-cq-PPg">
+                                <rect key="frame" x="16" y="5" width="86" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.left.fill" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="backButton:" destination="feP-PP-1pX" eventType="touchUpInside" id="754-SP-UkK"/>
+                                    <action selector="backButton:" destination="eEY-Qt-NzB" eventType="touchUpInside" id="iCp-a2-BJ2"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="OYg-eZ-NrO" id="KZQ-H7-ZPn"/>
+                        <outlet property="collectionView" destination="OYg-eZ-NrO" id="zRN-Ej-AdZ"/>
                         <outlet property="desc" destination="8dO-pZ-laP" id="IEe-Oq-fik"/>
                         <outlet property="name" destination="VNu-8Z-9Hv" id="dSa-QT-Gq3"/>
+                        <outlet property="navBar" destination="Iij-oH-hk7" id="w15-DB-aWG"/>
                         <outlet property="postCount" destination="8pB-p8-sQo" id="Bdb-lZ-KvJ"/>
-                        <outlet property="postNum" destination="8pB-p8-sQo" id="fFI-dw-9aa"/>
-                        <outlet property="profileImage" destination="u49-nh-lDR" id="Ruv-UA-lK5"/>
                         <outlet property="profilePic" destination="u49-nh-lDR" id="yYh-b1-Ppt"/>
                         <outlet property="pronouns" destination="AXh-16-ky0" id="IFL-NB-piN"/>
                     </connections>
@@ -1066,7 +1057,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O0K-rj-XBP"/>
+        <segue reference="VOT-1F-zwK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.left.fill" catalog="system" width="128" height="113"/>

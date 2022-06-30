@@ -35,7 +35,6 @@
     // Do any additional setup after loading the view.
     [self query];
     [self.tableView reloadData];
-    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(query) userInfo:nil repeats:true];
     if([PFUser.currentUser[@"firstTime"] intValue] == 1) {
         [self alertWithTitle:@"Welcome to QuickPic!" message:@"If you would like to customize your profile and add your email go to the settings page found on the top right corner of the profile."];
         PFUser.currentUser[@"firstTime"] = @(0);
