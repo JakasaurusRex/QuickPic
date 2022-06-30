@@ -156,6 +156,7 @@
     [cell.username addGestureRecognizer:tapGesture];
     [cell.profilePic addGestureRecognizer:tapGesture];
     [cell.profileButton setTitle:@"" forState:UIControlStateNormal];
+    cell.likeCount.text = [NSString stringWithFormat:@"%d likes", [post.likeCount intValue]];
     
     
     return cell;
