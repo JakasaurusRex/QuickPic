@@ -26,15 +26,24 @@
     self.collectionView.dataSource = self;
     self.user = [PFUser currentUser];
     
+    //Pull to refresh
+    self.collectionView.alwaysBounceVertical = YES;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:refreshControl atIndex:0];
+    
+    
     [self query];
-    [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     [self setup];
 }
 
--(void) onTimer{
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
     [self query];
     [self setup];
+    [self.collectionView reloadData];
+    [refreshControl endRefreshing];
 }
+
 
 -(void) setup {
     PFUser *user = self.user;
@@ -42,7 +51,6 @@
     self.desc.text = user[@"desc"];
     self.pronouns.text = user[@"pronouns"];
     self.name.text = user[@"name"];
-    NSLog(@"%@", user[@"postCount"]);
     int x = [user[@"postCount"] intValue];
     self.postNum.text = [NSString stringWithFormat:@"%d", x];
     
