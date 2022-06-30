@@ -156,8 +156,19 @@
     [cell.username addGestureRecognizer:tapGesture];
     [cell.profilePic addGestureRecognizer:tapGesture];
     [cell.profileButton setTitle:@"" forState:UIControlStateNormal];
-    cell.likeCount.text = [NSString stringWithFormat:@"%d likes", [post.likeCount intValue]];
+    cell.post = post;
+    cell.likeCount.text = [NSString stringWithFormat:@"%lu likes", (unsigned long)[post.likedUsers count]];
     
+    PFUser *curUser = [PFUser currentUser];
+    if([post.likedUsers containsObject:curUser.username]) {
+        cell.liked = YES;
+        [cell.likeButton setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        cell.likeButton.tintColor = UIColor.systemPinkColor;
+    } else {
+        [cell.likeButton setImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
+        cell.likeButton.tintColor = UIColor.lightGrayColor;
+        cell.liked = NO;
+    }
     
     return cell;
 }

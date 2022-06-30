@@ -28,6 +28,8 @@
     newPost.caption = caption;
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
+    NSArray *array = [[NSArray alloc] init];
+    newPost.likedUsers = array;
     
     [newPost saveInBackgroundWithBlock: completion];
 }

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/PFImageView.h"
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (strong, nonatomic) Post *post;
+@property BOOL liked;
 @end
 
 NS_ASSUME_NONNULL_END
