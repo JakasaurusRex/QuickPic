@@ -63,7 +63,7 @@
             NSLog(@"Error saving user information");
         }
     }];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"profile" object:nil];
 }
 
 - (IBAction)logoutButton:(id)sender {

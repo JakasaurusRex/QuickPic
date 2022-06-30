@@ -26,6 +26,8 @@
     self.collectionView.dataSource = self;
     self.user = [PFUser currentUser];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setup) name:@"profile" object:nil];
+    
     //Pull to refresh
     self.collectionView.alwaysBounceVertical = YES;
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
