@@ -6,8 +6,10 @@
 //
 
 #import "DetailsViewController.h"
+#import "OtherProfileViewController.h"
 
 @interface DetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
 
 @end
 
@@ -27,6 +29,8 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM d, yyyy"];
     self.createdAt.text = [dateFormatter stringFromDate:date];
+    
+    [self.profileButton setTitle:@"" forState:UIControlStateNormal];
     
     
     //turning PFFileObject that is the post image into data to be used to turn into an image
@@ -55,6 +59,14 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"profileSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        OtherProfileViewController *profileController = (OtherProfileViewController*)navigationController.topViewController;
+        PFUser *user = self.post.author;
+        profileController.user = user;
+    }
+}
 
 
 

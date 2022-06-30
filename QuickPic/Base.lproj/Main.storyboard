@@ -157,21 +157,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-Su-zNm" userLabel="Profile Button">
+                                <rect key="frame" x="15.999999999999993" y="95" width="106.33333333333331" height="25"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <segue destination="DfO-to-hmH" kind="presentation" identifier="profileSegue" modalPresentationStyle="fullScreen" id="5j3-RD-B14"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v9D-Tb-U2l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mIS-5d-dtR" secondAttribute="trailing" symbolic="YES" id="0cS-Dv-Q4H"/>
                             <constraint firstItem="M8C-gq-Tum" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="5oh-4u-rf2"/>
+                            <constraint firstItem="VRm-Su-zNm" firstAttribute="leading" secondItem="j9Q-kf-6Qo" secondAttribute="leading" id="GBK-pT-5kO"/>
                             <constraint firstItem="j9Q-kf-6Qo" firstAttribute="top" secondItem="v9D-Tb-U2l" secondAttribute="top" constant="7" id="GNd-hW-GY8"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" secondItem="Kvg-Kl-NnA" secondAttribute="trailing" id="Gj1-Tw-dB5"/>
                             <constraint firstItem="c2a-vw-q5X" firstAttribute="centerY" secondItem="M8C-gq-Tum" secondAttribute="centerY" constant="1.2" id="HMa-rd-UEe"/>
                             <constraint firstItem="mIS-5d-dtR" firstAttribute="top" secondItem="Kvg-Kl-NnA" secondAttribute="bottom" constant="8" symbolic="YES" id="LC3-k9-TGy"/>
+                            <constraint firstItem="VRm-Su-zNm" firstAttribute="bottom" secondItem="j9Q-kf-6Qo" secondAttribute="bottom" id="MBu-MK-d6O"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2a-vw-q5X" secondAttribute="trailing" symbolic="YES" id="O4Y-Hj-S1E"/>
+                            <constraint firstItem="VRm-Su-zNm" firstAttribute="top" secondItem="j9Q-kf-6Qo" secondAttribute="top" id="XQI-AO-oeM"/>
                             <constraint firstItem="Kvg-Kl-NnA" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" id="a5V-eZ-Xzc"/>
                             <constraint firstItem="M8C-gq-Tum" firstAttribute="top" secondItem="mIS-5d-dtR" secondAttribute="bottom" constant="2" id="auS-XW-4we"/>
                             <constraint firstItem="7se-p3-zqi" firstAttribute="centerY" secondItem="j9Q-kf-6Qo" secondAttribute="centerY" id="dDN-Hm-0ej"/>
                             <constraint firstItem="7se-p3-zqi" firstAttribute="leading" secondItem="j9Q-kf-6Qo" secondAttribute="trailing" constant="8" symbolic="YES" id="ddL-EN-5kb"/>
+                            <constraint firstItem="VRm-Su-zNm" firstAttribute="trailing" secondItem="7se-p3-zqi" secondAttribute="trailing" id="eAB-FW-8rY"/>
                             <constraint firstItem="mIS-5d-dtR" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="eu4-1v-Cxa"/>
                             <constraint firstItem="j9Q-kf-6Qo" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="f5S-HH-Pgt"/>
                             <constraint firstItem="c2a-vw-q5X" firstAttribute="leading" secondItem="M8C-gq-Tum" secondAttribute="trailing" constant="10" id="lKv-nV-i6A"/>
@@ -198,6 +210,7 @@
                         <outlet property="caption" destination="c2a-vw-q5X" id="lLZ-ll-RU9"/>
                         <outlet property="createdAt" destination="mIS-5d-dtR" id="PwG-rW-r2g"/>
                         <outlet property="postImage" destination="Kvg-Kl-NnA" id="Asc-nU-GHs"/>
+                        <outlet property="profileButton" destination="VRm-Su-zNm" id="xOZ-BN-bWD"/>
                         <outlet property="profilePic" destination="j9Q-kf-6Qo" id="77P-EF-Tac"/>
                         <outlet property="titleUsername" destination="7se-p3-zqi" id="nnI-eK-ahw"/>
                         <outlet property="username" destination="M8C-gq-Tum" id="5Sx-25-HHZ"/>
@@ -1069,6 +1082,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5j3-RD-B14"/>
         <segue reference="O0K-rj-XBP"/>
     </inferredMetricsTieBreakers>
     <resources>
