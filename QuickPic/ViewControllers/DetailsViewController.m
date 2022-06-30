@@ -7,16 +7,21 @@
 
 #import "DetailsViewController.h"
 #import "OtherProfileViewController.h"
+#import "HomeViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
 
 @end
 
 @implementation DetailsViewController
 
+
 - (IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"load" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -56,7 +61,19 @@
     self.profilePic.clipsToBounds = true;
     self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
     self.profilePic.layer.borderWidth = 0.05;
-    // Do any additional setup after loading the view.
+    
+    [self.likeButton setTitle:@"" forState:UIControlStateNormal];
+    PFUser *curUser = [PFUser currentUser];
+    self.likeCount.text = [NSString stringWithFormat:@"%lu likes", (unsigned long)[self.post.likedUsers count]];
+    if([self.post.likedUsers containsObject:curUser.username]) {
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        self.likeButton.tintColor = UIColor.systemPinkColor;
+        self.liked = YES;
+    } else {
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
+        self.likeButton.tintColor = UIColor.lightGrayColor;
+        self.liked = NO;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -69,6 +86,45 @@
 }
 
 
+- (IBAction)likeButtonPressed:(id)sender {
+    PFUser *user = [PFUser currentUser];
+    NSMutableArray *likedUsers = [[NSMutableArray alloc] initWithArray:self.post.likedUsers];
+    
+    if(self.liked) {
+        //visual stuff
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
+        self.likeButton.tintColor = UIColor.lightGrayColor;
+        self.liked = NO;
+        //mutable array stuff
+        [likedUsers removeObject:user.username];
+        NSArray *dbLikedUsers = [[NSArray alloc] initWithArray:likedUsers];
+        self.post.likedUsers = dbLikedUsers;
+    } else {
+        //visual stuff
+        [self.likeButton setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        self.likeButton.tintColor = UIColor.systemPinkColor;
+        self.liked = YES;
+        //mutable array stuff
+        [likedUsers addObject:user.username];
+        NSArray *dbLikedUsers = [[NSArray alloc] initWithArray:likedUsers];
+        self.post.likedUsers = dbLikedUsers;
+    }
+    
+    //pushing the information to the database
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error == nil) {
+            NSLog(@"Liked or unliked post!");
+        } else {
+            NSLog(@"Error liking or unliking post!");
+        }
+    }];
+    
+    //updating label
+    [self updateLabels];
+}
 
+-(void) updateLabels {
+    self.likeCount.text = [NSString stringWithFormat:@"%lu likes", (unsigned long)[self.post.likedUsers count]];
+}
 
 @end

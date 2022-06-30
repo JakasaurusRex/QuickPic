@@ -27,12 +27,25 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadList) name:@"load" object:nil];
+    
     //Pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
     
     // Do any additional setup after loading the view.
+    [self query];
+    [self.tableView reloadData];
+    if([PFUser.currentUser[@"firstTime"] intValue] == 1) {
+        [self alertWithTitle:@"Welcome to QuickPic!" message:@"If you would like to customize your profile and add your email go to the settings page found on the top right corner of the profile."];
+        PFUser.currentUser[@"firstTime"] = @(0);
+    } else if(PFUser.currentUser[@"email"] == nil) {
+        [self alertWithTitle:@"Please add email" message:@"It appears you do not have an email on your account. Please go to setting on the profile page to add one to reset your password if needed."];
+    }
+}
+
+-(void) loadList {
     [self query];
     [self.tableView reloadData];
     if([PFUser.currentUser[@"firstTime"] intValue] == 1) {

@@ -127,21 +127,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-gq-Tum">
-                                <rect key="frame" x="16" y="542.33333333333337" width="76.333333333333329" height="19.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <rect key="frame" x="16" y="574" width="72" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIS-5d-dtR">
-                                <rect key="frame" x="16.000000000000004" y="526" width="59.333333333333343" height="14.333333333333371"/>
+                                <rect key="frame" x="16.000000000000004" y="599.66666666666663" width="59.333333333333343" height="14.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-vw-q5X">
-                                <rect key="frame" x="102.33333333333333" y="544.66666666666663" width="50.999999999999986" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9Q-kf-6Qo" userLabel="Pfp">
@@ -165,30 +159,57 @@
                                     <segue destination="DfO-to-hmH" kind="presentation" identifier="profileSegue" modalPresentationStyle="fullScreen" id="5j3-RD-B14"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cd-YL-PhE" userLabel="likeButton">
+                                <rect key="frame" x="4" y="521" width="45.333333333333336" height="30.666666666666629"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="feP-PP-1pX" eventType="touchUpInside" id="kf5-Y5-781"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-l6-MPJ">
+                                <rect key="frame" x="17" y="552" width="75" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-vw-q5X">
+                                <rect key="frame" x="98" y="575.66666666666663" width="47.333333333333343" height="15.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v9D-Tb-U2l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mIS-5d-dtR" secondAttribute="trailing" symbolic="YES" id="0cS-Dv-Q4H"/>
                             <constraint firstItem="M8C-gq-Tum" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="5oh-4u-rf2"/>
+                            <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NZH-l6-MPJ" secondAttribute="trailing" symbolic="YES" id="7xY-eq-wqV"/>
+                            <constraint firstItem="NZH-l6-MPJ" firstAttribute="top" secondItem="6cd-YL-PhE" secondAttribute="bottom" constant="0.33333333333337123" id="Do3-7v-NuX"/>
                             <constraint firstItem="VRm-Su-zNm" firstAttribute="leading" secondItem="j9Q-kf-6Qo" secondAttribute="leading" id="GBK-pT-5kO"/>
                             <constraint firstItem="j9Q-kf-6Qo" firstAttribute="top" secondItem="v9D-Tb-U2l" secondAttribute="top" constant="7" id="GNd-hW-GY8"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" secondItem="Kvg-Kl-NnA" secondAttribute="trailing" id="Gj1-Tw-dB5"/>
-                            <constraint firstItem="c2a-vw-q5X" firstAttribute="centerY" secondItem="M8C-gq-Tum" secondAttribute="centerY" constant="1.2" id="HMa-rd-UEe"/>
-                            <constraint firstItem="mIS-5d-dtR" firstAttribute="top" secondItem="Kvg-Kl-NnA" secondAttribute="bottom" constant="8" symbolic="YES" id="LC3-k9-TGy"/>
+                            <constraint firstItem="c2a-vw-q5X" firstAttribute="centerY" secondItem="M8C-gq-Tum" secondAttribute="centerY" constant="0.40000000000000002" id="HMa-rd-UEe"/>
+                            <constraint firstItem="M8C-gq-Tum" firstAttribute="top" secondItem="NZH-l6-MPJ" secondAttribute="bottom" constant="4" id="JCW-9v-dUo"/>
                             <constraint firstItem="VRm-Su-zNm" firstAttribute="bottom" secondItem="j9Q-kf-6Qo" secondAttribute="bottom" id="MBu-MK-d6O"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2a-vw-q5X" secondAttribute="trailing" symbolic="YES" id="O4Y-Hj-S1E"/>
+                            <constraint firstItem="NZH-l6-MPJ" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="17" id="TIV-Kk-NuL"/>
                             <constraint firstItem="VRm-Su-zNm" firstAttribute="top" secondItem="j9Q-kf-6Qo" secondAttribute="top" id="XQI-AO-oeM"/>
                             <constraint firstItem="Kvg-Kl-NnA" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" id="a5V-eZ-Xzc"/>
-                            <constraint firstItem="M8C-gq-Tum" firstAttribute="top" secondItem="mIS-5d-dtR" secondAttribute="bottom" constant="2" id="auS-XW-4we"/>
                             <constraint firstItem="7se-p3-zqi" firstAttribute="centerY" secondItem="j9Q-kf-6Qo" secondAttribute="centerY" id="dDN-Hm-0ej"/>
                             <constraint firstItem="7se-p3-zqi" firstAttribute="leading" secondItem="j9Q-kf-6Qo" secondAttribute="trailing" constant="8" symbolic="YES" id="ddL-EN-5kb"/>
                             <constraint firstItem="VRm-Su-zNm" firstAttribute="trailing" secondItem="7se-p3-zqi" secondAttribute="trailing" id="eAB-FW-8rY"/>
+                            <constraint firstItem="6cd-YL-PhE" firstAttribute="top" secondItem="Kvg-Kl-NnA" secondAttribute="bottom" constant="3" id="eCo-jG-1Y1"/>
                             <constraint firstItem="mIS-5d-dtR" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="eu4-1v-Cxa"/>
                             <constraint firstItem="j9Q-kf-6Qo" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="16" id="f5S-HH-Pgt"/>
+                            <constraint firstItem="mIS-5d-dtR" firstAttribute="top" secondItem="c2a-vw-q5X" secondAttribute="bottom" constant="8.3333333333333712" id="kjA-M9-tGr"/>
                             <constraint firstItem="c2a-vw-q5X" firstAttribute="leading" secondItem="M8C-gq-Tum" secondAttribute="trailing" constant="10" id="lKv-nV-i6A"/>
+                            <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6cd-YL-PhE" secondAttribute="trailing" symbolic="YES" id="n5c-Br-5In"/>
                             <constraint firstItem="Kvg-Kl-NnA" firstAttribute="top" secondItem="j9Q-kf-6Qo" secondAttribute="bottom" constant="8" symbolic="YES" id="qNv-vs-wb4"/>
                             <constraint firstItem="v9D-Tb-U2l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7se-p3-zqi" secondAttribute="trailing" constant="10" id="t95-qt-rwj"/>
+                            <constraint firstItem="6cd-YL-PhE" firstAttribute="leading" secondItem="v9D-Tb-U2l" secondAttribute="leading" constant="4" id="xco-tc-csh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="072-oI-5kL">
@@ -209,6 +230,8 @@
                     <connections>
                         <outlet property="caption" destination="c2a-vw-q5X" id="lLZ-ll-RU9"/>
                         <outlet property="createdAt" destination="mIS-5d-dtR" id="PwG-rW-r2g"/>
+                        <outlet property="likeButton" destination="6cd-YL-PhE" id="YC8-QB-LSS"/>
+                        <outlet property="likeCount" destination="NZH-l6-MPJ" id="aBA-m0-BST"/>
                         <outlet property="postImage" destination="Kvg-Kl-NnA" id="Asc-nU-GHs"/>
                         <outlet property="profileButton" destination="VRm-Su-zNm" id="xOZ-BN-bWD"/>
                         <outlet property="profilePic" destination="j9Q-kf-6Qo" id="77P-EF-Tac"/>
@@ -1107,7 +1130,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Fa-yy-gte"/>
+        <segue reference="5j3-RD-B14"/>
         <segue reference="O0K-rj-XBP"/>
     </inferredMetricsTieBreakers>
     <resources>
